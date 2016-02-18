@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Shojib Template</title>
+</head>
+<script type="text/javascript" src="./src/shojib.js"></script>
+<body id="app">
+	loading...
+
+
+<script type="text/javascript">
+View({
+    element: '#app',
+    template: `
+            <header>{{author}} {{appName}} v.{{version}}</header>
+            <ul>
+                <li for="item in items">{{item.name}} {{item.age}}</li>
+            </ul>
+            <footer>(c) {{year}} {{author}} {{appName}}</footer>
+    `,
+    model: { author: 'Shojib',
+            appName: 'Template',
+            version: '0.1',
+            items: [{ name: 'Mahmud', age: 35 },
+                { name: 'Hossain', age: 15 },
+                { name: 'shojib', age: 20 }
+            ],
+            moreItems: [0,1]
+    }
+})
+</script>
+</body>
+</html>

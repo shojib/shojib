@@ -1,0 +1,49 @@
+var config = Object.defineProperties
+
+  function compileRegex
+
+
+   function compileTextNode(node, options)
+
+
+  function findRef(node)
+
+
+    function makeTerminalNodeLinkFn
+
+
+      function compileNodeList
+
+
+      attr = "v-for", descriptor = Object {name: "for", expression: "item in items", filters: undefined, raw: "item 
+
+
+
+
+var vFor = {
+
+priority: FOR,
+
+params: ['track-by', 'stagger', 'enter-stagger', 'leave-stagger'],
+
+bind: function bind() {
+
+
+
+
+  function compile(el, options, partial)
+
+
+
+
+     * Parse a template text string into an array of tokens.
+   *
+   * @param {String} text
+   * @return {Array<Object> | null}
+   *               - {String} type
+   *               - {String} value
+   *               - {Boolean} [html]
+   *               - {Boolean} [oneTime]
+   */
+
+  function parseText(text)
