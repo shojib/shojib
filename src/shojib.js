@@ -62,6 +62,9 @@ var Curly = function (match, fragment, model) {
     if (isDefined(model[match[1]])) {
         frag = fragment.replace(regexp, model[match[1]])
         return frag
+    } else if (isDefined(model)) {
+        frag = fragment.replace(regexp, model)
+        return frag
     } else {
         return fragment
     }
@@ -131,11 +134,20 @@ var View = function (opts) {
             fragments[i].innerHTML = frag
         }
         if (fragments[i].outerHTML.match(TEMPLATE_REGEX.forRe)!==null) {
-            while (match = TEMPLATE_REGEX.forRe.exec(fragments[i].outerHTML)) {
-                frag = fragments[i].innerHTML
-                frag = ForLoop(match, model)
+            var tokens = docFragmentFn(fragments[i].outerHTML)[0].childNodes,
+                prevIndex
+            for (var t = 0; t < tokens.length; t++) {
+                console.log(tokens[t].outerHTML)
+                while (match = TEMPLATE_REGEX.forRe.exec(tokens[t].outerHTML)) {
+                    frag = tokens[t].innerHTML
+                    frag = ForLoop(match, model)
+                    prevIndex = t
+                }
+                tokens[t].innerHTML = frag
             }
-            fragments[i].innerHTML = frag
+                console.log(tokens[prevIndex])
+                fragments[i].childNodes[prevIndex].innerHTML = tokens[prevIndex].innerHTML
+                console.log(fragments[i].childNodes[prevIndex])
         }
     }
 
