@@ -20,13 +20,14 @@ function isMapFn (obj) {
 }
 
 function docFragmentFn (html) {
-    var frag = document.createDocumentFragment(),
-    tmp = document.createElement('body'), child;
-    tmp.innerHTML = html;
-    while (child = tmp.firstElementChild) {
+    var frag = document.createDocumentFragment(), frags = [],
+    bodyEle = document.createElement('body'), child;
+    bodyEle.innerHTML = html;
+    while (child = bodyEle.firstElementChild) {
         frag.appendChild(child);
+        frags.push(child);
     }
-    return frag;
+    return frags;
 }
 
 function stringify (obj) {
@@ -86,15 +87,14 @@ var ForLoop = function (match, model) {
             var data = model[iterable],
                 keys = Object.keys(data),
                 len = keys.length,
-                fMatch, frag
+                fMatch, frag = []
             for (var i = 0; i < len; i++) {
-                frag = match.input
+                frag = match.input.trim()
                 while (fMatch = TEMPLATE_REGEX.curlyRe.exec(match.input)) {
                     fMatch[1] = fMatch[1].split('.')[1]
                     frag = Curly(fMatch, frag, data[i])
                 }
                 compiledTpl += frag
-                console.log(i, compiledTpl)
             }
         }
     }
@@ -108,8 +108,7 @@ var View = function (opts) {
         scopes = Object.keys(model),
         element = opts.element,
         match, year = new Date().getFullYear(),
-        frag = docFragmentFn(template),
-        fragments = frag.querySelectorAll('*'),
+        fragments = docFragmentFn(template),
         fragmentsLength = fragments.length
         model.year = year
 
@@ -124,11 +123,13 @@ var View = function (opts) {
             frag = fragments[i].innerHTML
             frag = ForLoop(match, model)
         }
-        fragments[i].replaceChild(document.createTextNode(frag), fragments[i].childNodes[0])
+        fragments[i].innerHTML = frag
     }
 
-    console.log(fragments)
-    var ele = document.querySelector(element).appendChild(fragments[1])
+   document.querySelector(element).innerHTML = ''
+    for (var h = 0; h < fragments.length; h++) {
+        document.querySelector(element).appendChild(fragments[h])    
+    }
 
 }
 
