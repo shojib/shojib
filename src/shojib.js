@@ -101,10 +101,19 @@ var ForLoop = function (match, model) {
     return compiledTpl
 }
 
+var interpolate = function(fragment, model) {
+    var frag = fragment.childNodes[0].data
+    while (match = TEMPLATE_REGEX.curlyRe.exec(fragment.innerHTML)) {
+        frag = Curly(match, frag, model)
+    }
+    return document.createTextNode(frag)
+}
+
 var View = function (opts) {
     var opts = opts || {},
         template = opts.template.trim(),
         model = opts.model,
+        directives = opts.directives,
         scopes = Object.keys(model),
         element = opts.element,
         match, year = new Date().getFullYear(),
@@ -113,17 +122,21 @@ var View = function (opts) {
         model.year = year
 
     for (var i = 0; i < fragmentsLength; i++) {
-        var frag = fragments[i].childNodes[0].data
-        while (match = TEMPLATE_REGEX.curlyRe.exec(fragments[i].innerHTML)) {
-            frag = Curly(match, frag, model)
+        var frag
+        if (fragments[i].outerHTML.match(TEMPLATE_REGEX.forRe)===null) {
+            frag = fragments[i].outerHTML
+            while (match = TEMPLATE_REGEX.curlyRe.exec(fragments[i].innerHTML)) {
+                frag = Curly(match, frag, model)
+            }
+            fragments[i].innerHTML = frag
         }
-        fragments[i].replaceChild(document.createTextNode(frag), fragments[i].childNodes[0])
-        
-        while (match = TEMPLATE_REGEX.forRe.exec(fragments[i].innerHTML)) {
-            frag = fragments[i].innerHTML
-            frag = ForLoop(match, model)
+        if (fragments[i].outerHTML.match(TEMPLATE_REGEX.forRe)!==null) {
+            while (match = TEMPLATE_REGEX.forRe.exec(fragments[i].outerHTML)) {
+                frag = fragments[i].innerHTML
+                frag = ForLoop(match, model)
+            }
+            fragments[i].innerHTML = frag
         }
-        fragments[i].innerHTML = frag
     }
 
    document.querySelector(element).innerHTML = ''
