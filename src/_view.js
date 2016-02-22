@@ -52,8 +52,9 @@ function showTest () {
     return false;
 }
 
-function view (opts) {
-    var opts = opts || {},
+function _view (name, fn) {
+    this.name = name
+    var opts = fn(),
         template = opts.template.trim(),
         model = opts.model,
         directives = opts.directives,

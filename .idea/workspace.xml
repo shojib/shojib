@@ -2,11 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1ef2edb-0ccf-4227-9ac5-e8d097211925" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/controller.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/regex.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/utility.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/shojib.view.js" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/shojib.js" afterPath="$PROJECT_DIR$/src/view.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/_component.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/_filter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/_model.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/_service.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/shojib.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/controller.js" afterPath="$PROJECT_DIR$/src/_controller.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/regex.js" afterPath="$PROJECT_DIR$/src/_regex.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/view.js" afterPath="$PROJECT_DIR$/src/_view.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
     </list>
     <ignored path="shojib.iws" />
@@ -28,59 +32,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="view.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/view.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.24711697">
-              <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="controller.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/controller.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="1" column="23" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="regex.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/regex.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="4" column="24" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.0588236">
-              <caret line="20" column="28" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
+            <state vertical-scroll-proportion="0.43053174">
+              <caret line="20" column="35" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
               <folding>
-                <marker date="1456106511000" expanded="true" signature="472:570" placeholder="..." />
-                <marker date="1456106511000" expanded="true" signature="689:1433" placeholder="..." />
-                <marker date="1456106511000" expanded="true" signature="713:1023" placeholder="..." />
-                <marker date="1456106511000" expanded="true" signature="738:998" placeholder="..." />
-                <marker date="1456106511000" expanded="true" signature="1047:1412" placeholder="..." />
-                <marker date="1456106511000" expanded="true" signature="1091:1387" placeholder="..." />
+                <marker date="1456109055000" expanded="true" signature="949:1047" placeholder="..." />
+                <marker date="1456109055000" expanded="true" signature="1166:1910" placeholder="..." />
+                <marker date="1456109055000" expanded="true" signature="1190:1500" placeholder="..." />
+                <marker date="1456109055000" expanded="true" signature="1215:1475" placeholder="..." />
+                <marker date="1456109055000" expanded="true" signature="1524:1889" placeholder="..." />
+                <marker date="1456109055000" expanded="true" signature="1568:1864" placeholder="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="utility.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/utility.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -93,12 +57,18 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/shojib.js" />
         <option value="$PROJECT_DIR$/src/regex.js" />
         <option value="$PROJECT_DIR$/src/utility.js" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/src/controller.js" />
+        <option value="$PROJECT_DIR$/src/main.js" />
         <option value="$PROJECT_DIR$/src/view.js" />
+        <option value="$PROJECT_DIR$/src/_model.js" />
+        <option value="$PROJECT_DIR$/src/_service.js" />
+        <option value="$PROJECT_DIR$/src/_component.js" />
+        <option value="$PROJECT_DIR$/src/_filter.js" />
+        <option value="$PROJECT_DIR$/src/_controller.js" />
+        <option value="$PROJECT_DIR$/src/shojib.js" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -309,50 +279,90 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/regex.js">
+    <entry file="file://$PROJECT_DIR$/src/_regex.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="24" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
+        <state vertical-scroll-proportion="0.17298187">
+          <caret line="7" column="34" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/_view.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.37067544">
+          <caret line="45" column="5" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/utility.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.6672158">
+          <caret line="27" column="26" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/_component.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.049423393">
+          <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/_filter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.049423393">
+          <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/_model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.049423393">
+          <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/_controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.07413509">
+          <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shojib.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.24711697">
+          <caret line="10" column="30" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/_service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.049423393">
+          <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.0588236">
-          <caret line="20" column="28" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
+        <state vertical-scroll-proportion="0.43053174">
+          <caret line="20" column="35" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
           <folding>
-            <marker date="1456106511000" expanded="true" signature="472:570" placeholder="..." />
-            <marker date="1456106511000" expanded="true" signature="689:1433" placeholder="..." />
-            <marker date="1456106511000" expanded="true" signature="713:1023" placeholder="..." />
-            <marker date="1456106511000" expanded="true" signature="738:998" placeholder="..." />
-            <marker date="1456106511000" expanded="true" signature="1047:1412" placeholder="..." />
-            <marker date="1456106511000" expanded="true" signature="1091:1387" placeholder="..." />
+            <marker date="1456109055000" expanded="true" signature="949:1047" placeholder="..." />
+            <marker date="1456109055000" expanded="true" signature="1166:1910" placeholder="..." />
+            <marker date="1456109055000" expanded="true" signature="1190:1500" placeholder="..." />
+            <marker date="1456109055000" expanded="true" signature="1215:1475" placeholder="..." />
+            <marker date="1456109055000" expanded="true" signature="1524:1889" placeholder="..." />
+            <marker date="1456109055000" expanded="true" signature="1568:1864" placeholder="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="23" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24711697">
-          <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
