@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.js"></script>
+</head>
+<body>
+<h1>Web workers: Generate Fibonacci series - With Worker</h1>
+<input type="numeric" id="seriesLength" value="10" />
+<input type="button" id="generateButton" value="Generate Series" />
+<ol id="log"></ol>
+
+
+<script>
+var log = null;
+var worker;
+
+var fibbworker = function(){
+  
+  //the content of this function would usually be in a separate fib-worker.js file
+  var results = [];
+
+  function messageHandler(e){
+      if (e.data > 0){
+          generateFibonacciSeries(e.data);
+      }
+  }
+  
+  function calculateNextFibonacciValue(n) {
+    var s = 0;
+    var  returnValue;
+  
+    if (n == 0){
+      return (s);
+    }
+    if (n == 1){
+          s+=1;
+      return (s);
+    }
+    else{
+      return (calculateNextFibonacciValue(n-1) + calculateNextFibonacciValue(n-2));
+    }
+  }
+  
+  function generateFibonacciSeries(n) {
+    results.length = 0;
+    for (var i = 0; i <= n-1; i++) {
+      results.push(calculateNextFibonacciValue(i));
+    }
+    postMessage(results);
+  }
+  
+  addEventListener('message', messageHandler, true);
+};
+
+
+
+
+//separate js file
+  log = $('#log');
+  var blob = new Blob(["(" + fibbworker.toString() + ")()"]);
+  var blobUrl = window.URL.createObjectURL(blob);
+
+  $('#generateButton').click(function(){
+    var seriesLength = parseInt($('#seriesLength').val());
+    var worker = new Worker(blobUrl);
+    worker.onmessage = messageHandler;
+    worker.onerror = errorHandler;
+    
+    //post message to worker
+    worker.postMessage(seriesLength);
+  });
+  
+  function messageHandler(e){
+    var results = e.data;
+    $.each(results, function(){
+      	logMsg(this);
+    });
+  }
+  
+  function errorHandler(e){
+    	logMsg(e.message);
+  }
+  
+  function logMsg(msg){
+    log.append('<li>' + msg + '</li>');
+  }
+
+</script>
+</body>
+</html>

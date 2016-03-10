@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Fibonacci Web Worker</title>
+</head>
+<body>
+	<input id="input-txt" value="10" />
+	<button onclick="startWorker()">Print</button>
+	<button onclick="clear()">Clear</button>
+	<ul id="list">...</div>
+
+<script>
+ var fibWorker = function () {
+ 	var results = [];
+ 	this.onmessage = function(e) {
+ 		if(e.data > 0) printFibo(e.data);
+ 	};
+	function fibonacci (n) {
+	  if (n === 0 || n === 1) {
+	    return n;
+	  } else if (n > 1) {
+	    return fibonacci(n-1) + fibonacci(n-2);
+	  }
+	};
+	function printFibo(n) {
+	  for (var i = 0; i <= n; i++) {
+	  	results.push(fibonacci(i));
+	  }
+	  postMessage(results);
+	}
+};
+
+var $listElement = document.querySelector('#list');
+var blob = new Blob(["(" + fibWorker.toString() + ")()"]);
+var blobUrl = window.URL.createObjectURL(blob);
+function startWorker() {	
+	console.log('starting...');
+	$listElement.innerHTML = '';
+	var inputVal = parseInt(document.querySelector('#input-txt').value);
+	var worker = new Worker(blobUrl);
+	worker.onmessage = messageHandler;
+	worker.error = errorHandler;
+	worker.postMessage(inputVal);
+}
+function messageHandler(e){
+	var data = e.data, $li;
+	data.forEach( function(element, index) {
+		$li = document.createElement('LI');
+		$li.appendChild(document.createTextNode(element));
+		$listElement.appendChild($li);
+	});
+}
+function errorHandler(e){
+	console.log(e.message);
+}
+function clear() {
+    $listElement.innerHTML = '';
+}
+</script>
+</body>
+</html>

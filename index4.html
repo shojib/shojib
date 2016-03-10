@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.js"></script>
+  <script src="index4.js"></script>
+</head>
+<body>
+<div ng-app="App">
+  <h2>Todo</h2>
+  <div ng-controller="Ctrl">
+    <ul class="unstyled">
+     <li ng-repeat="article in articles track by $index" class="media repeat-item">
+            <a href="{{article.web_url}}" ng-show="article.multimedia[0].url" class="pull-right"><img src="http://www.nytimes.com/{{article.multimedia[0].url}}" class="media-object" /></a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="{{article.web_url}}">{{ article.headline.main }}</a></h4>
+                <p class="media-text">{{ article.lead_paragraph }}</p><small>{{ article.pub_date | date: 'fullDate' }}</small></div>
+        </li>
+    </ul>
+  </div>
+</div>
+
+</body>
+</html>
