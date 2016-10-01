@@ -2,10 +2,10 @@
 function isMapFn (obj) {
     if (typeof obj === 'object' || Array.isArray(obj)) {
         var str = JSON.stringify(obj);
-        var match = str.match(/[{}]/g)
-        return match ? match.length > 2 : false
+        var match = str.match(/[{}]/g);
+        return match ? match.length > 2 : false;
     } else {
-        return false
+        return false;
     }
 }
 
@@ -21,32 +21,30 @@ function docFragmentFn (html) {
 }
 
 function stringify (obj) {
-    return JSON.stringify(obj)
+    return JSON.stringify(obj);
 }
 
 function isDefined (obj) {
-    return typeof obj !== 'undefined'
+    return typeof obj !== 'undefined';
 }
 
 function isNull (obj) {
-    return obj === null
+    return obj === null;
 }
 
 function removeCurly (str) {
-    if (isDefined(str))
-        return str.match(REGEX.stripCurly).pop()
+    if (isDefined(str)) return str.match(REGEX.stripCurly).pop();
 }
 
 function removeFor (str) {
-    var re = str.match(REGEX.stripFor)
-    return RegExp.$1
+    var re = str.match(REGEX.stripFor);
+    return RegExp.$1;
 }
 
 function rmCurlySplit (match) {
-    if (isDefined(match))
-        return removeCurly(match).split('.')[1]
+    if (isDefined(match)) return removeCurly(match).split('.')[1];
 }
 
 function isMatch (freg, regex) {
-    if (isDefined(freg)) return freg.outerHTML.match(regex)!==null
+    if (isDefined(freg)) return freg.outerHTML.match(regex)!==null;
 }

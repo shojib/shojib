@@ -16,7 +16,7 @@
 	loading...
 
 <script type="text/javascript">
-var myApp = shojib.module('App', [])
+var myApp = shojib.module('App', []);
 myApp.model('model', function() {
   return { author: 'Shojib',
     appName: 'Template',
@@ -209,7 +209,7 @@ myApp.model('model', function() {
       }
     ]
   }
-})
+});
 myApp.view('mainView', ['model', function (model) {
   return {
     element: '#app',
@@ -246,7 +246,7 @@ myApp.view('mainView', ['model', function (model) {
             <footer>(c) {{year}} {{author}} {{appName}}</footer>
     `
   }
-}])
+}]);
 </script>
 </body>
 </html>
