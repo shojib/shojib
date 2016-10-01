@@ -1,6 +1,6 @@
 
 
-function CurlyDirective (match, fragment, model) {
+function _curlyDirective (match, fragment, model) {
     var frag, regexp = new RegExp(match[0], 'g');
     if (isDefined(model[match[1]])) {
         frag = fragment.replace(regexp, model[match[1]]);
@@ -13,7 +13,7 @@ function CurlyDirective (match, fragment, model) {
     }
 }
 
-function ForDirective (match, model) {
+function _forDirective (match, model) {
     var match, syntax, valName, iterable, compiledTpl = '',
     arrays = match[1].split(' ');
 
@@ -38,7 +38,7 @@ function ForDirective (match, model) {
                 frag = match.input.trim();
                 while (fMatch = REGEX.curly.exec(match.input)) {
                     fMatch[1] = fMatch[1].split('.')[1];
-                    frag = CurlyDirective(fMatch, frag, data[i]);
+                    frag = _curlyDirective(fMatch, frag, data[i]);
                 }
                 compiledTpl += frag;
             }
@@ -57,13 +57,10 @@ function _view (name, fn) {
     var opts = fn(),
         template = opts.template.trim(),
         model = opts.model,
-        directives = opts.directives,
-        scopes = Object.keys(model),
         element = opts.element,
         match, year = new Date().getFullYear(),
         fragments = docFragmentFn(template),
-        fragmentsLength = fragments.length,
-        model.year = year;
+        fragmentsLength = fragments.length;
 
     update()
 
@@ -82,7 +79,7 @@ function _view (name, fn) {
                 if (!isMatch(fragments[i], REGEX.for)) {
                     frag = fragments[i].outerHTML;
                     while (match = REGEX.curly.exec(fragments[i].innerHTML)) {
-                        frag = CurlyDirective(match, frag, model);
+                        frag = _curlyDirective(match, frag, model);
                     }
                     fragments[i].innerHTML = frag;
                 }
@@ -93,7 +90,7 @@ function _view (name, fn) {
                         console.log(tokens[t].outerHTML);
                         while (match = REGEX.for.exec(tokens[t].outerHTML)) {
                             frag = tokens[t].innerHTML;
-                            frag = ForDirective(match, model);
+                            frag = _forDirective(match, model);
                             prevIndex = t;
                         }
                         tokens[t].innerHTML = frag;

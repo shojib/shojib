@@ -7,4 +7,4 @@ var REGEX = {
     var: /[^{}]/g,
     stripCurly: /[a-z.A-Z0-9_]+/g,
     stripFor: /for="(.*[^"])/g
-}
+};

@@ -1,4 +1,4 @@
-function _model (name, fn) {
-    this.name = name
-    this.props = fn()
+function _model (name, props) {
+    this.name = name;
+    this.props = props;
 }

@@ -17,8 +17,7 @@
 
 <script type="text/javascript">
 var myApp = shojib.module('App', []);
-myApp.model('model', function() {
-  return { author: 'Shojib',
+myApp.model('model', { author: 'Shojib',
     appName: 'Template',
     version: '0.1',
     teas: [
@@ -208,13 +207,11 @@ myApp.model('model', function() {
         ]
       }
     ]
-  }
 });
-myApp.view('mainView', ['model', function (model) {
+myApp.view('mainView', function (model) {
   return {
     element: '#app',
-    directives: ['default','for'],
-    model: model,
+    model: myApp.model,
     template: `
             <header>{{author}} {{appName}} v.{{version}}</header>
             <ul>
@@ -246,7 +243,7 @@ myApp.view('mainView', ['model', function (model) {
             <footer>(c) {{year}} {{author}} {{appName}}</footer>
     `
   }
-}]);
+});
 </script>
 </body>
 </html>

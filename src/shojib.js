@@ -1,7 +1,7 @@
 var shojib = isDefined(shojib) ? shojib : {}
 
 shojib.module = function (name) {
-    this.name = name
+    this.name = name;
 
     return {
         model: _model,
